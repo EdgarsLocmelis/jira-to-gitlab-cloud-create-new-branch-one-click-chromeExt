@@ -1,35 +1,46 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Jira to Gitlab one click branch open</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Create branch on GitLab from Jira issue view">
-    <meta name="author" content="Tóth Krisztián Gyula">
-    <!-- Style Sheets -->
-    <link href="/src/css/popup.css" rel="stylesheet" media="screen">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
 </head>
-
-<body>
-    <div class="form-style-2">
-        <form>
-            <label for="token">
-                <span>Access token:<span class="required">*</span></span>
-                <input id="input_token" class="input-field" type="text" name="token" value="" />
-            </label>
-            <label for="projectId">
-                <span>Project id:<span class="required">*</span></span>
-                <input id="input_projectId" class="input-field" type="text" name="projectId" value="" />
-            </label>
-            <label><span id="display_message" style="display: none">Settings saved!</span></label>
-            <label>
-                <span></span>
-                <input type="submit" value="Save" id="btnSave">
-            </label>
-        </form>
-        <!-- Scripts -->
-        <script type="text/javascript" src="/src/js/popup.js"></script>
+<body class="overflow-y-scroll no-scrollbar h-160 w-80">
+    <div id="noDataClass" class="hidden flex  w-full opacity-20	 justify-center items-center">
     </div>
-</body>
 
+    <div class="p-6" id="dataClass hidden">
+        <div class="mb-4">
+            <label for="project" class="block text-gray-700 font-semibold">Select Project:</label>
+            <select id="project" name="project" class="w-full mt-1 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200">
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="branchType" class="block text-gray-700 font-semibold">Branch Type:</label>
+            <select id="branchType" name="branchType" class="w-full mt-1 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200">
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="branchSource" class="block text-gray-700 font-semibold">Source:</label>
+            <select id="branchSource" name="branchSource" class="w-full mt-1 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200">
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="branchName" class="block text-gray-700 font-semibold">Branch Name:</label>
+            <input type="text" id="branchName" name="branchName" class="w-full mt-1 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200">
+        </div>
+        <p id="existingBranches" class="text-gray-500">
+        </p>
+        <div class="mt-6 ">
+            <button id="createBranch" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-blue-200">
+                Create Branch
+            </button>
+            <span id="createBranchDisabled" disabled class=" hidden  bg-gray-500 opacity-50 text-white font-semibold py-2 px-4 rounded-md focus:outline-none">
+                Create Branch
+            </span>
+        </div>
+    </div>
+
+    <script src="/src/js/popup.js"></script>
+
+</body>
 </html>

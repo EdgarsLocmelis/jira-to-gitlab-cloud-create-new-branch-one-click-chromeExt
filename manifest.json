@@ -1,40 +1,33 @@
 {
-    "manifest_version": 2,
-    "name": "Jira Gitlab integration - New branch button",
-    "author": "Tóth Krisztián Gyula",
-    "version": "0.0.1",
-    "description": "Adds ability to create new branch on GitLab directly from the Jira issue overview by clicking a button",
+    "manifest_version": 3,
+    "name": "JIRA2GitLab integration",
+    "version": "1.0.0",
+    "description": "Adds the ability to create and access branch on GitLab directly from the popup menu of JIRA tab.",
+    "permissions": ["storage", "activeTab"],
     "icons": {
-        "16": "icons/icon16.png",
-        "32": "icons/icon32.png",
-        "48": "icons/icon48.png",
-        "128": "icons/icon128.png"
+      "16": "icons/ic16.png",
+      "32": "icons/ic32.png",
+      "48": "icons/ic48.png",
+      "128": "icons/ic128.png"
     },
-    "content_scripts": [
-        {
-            "run_at": "document_end",
-            "css": [
-                "src/css/popup.css"
-            ],
-            "js": [
-                "libs/jquery-3.4.1.min.js",
-                "src/js/content_script.js"
-            ],
-            "matches": [
-                "https://*.atlassian.net/browse/*"
-            ]
-        }
-    ],
     "web_accessible_resources": [
-        "src/js/*",
-        "src/html/*",
-        "libs/*"
+      {
+        "resources": ["src/js/*", "src/html/*"],
+        "matches": ["<all_urls>"]
+      }
     ],
-    "permissions": [
-        "storage",
-        "tabs"
-    ],
-    "browser_action": {
-        "default_popup": "src/html/popup.html"
+    "action": {
+      "default_icon": {
+        "16": "icons/ic16.png",
+        "32": "icons/ic32.png",
+        "48": "icons/ic48.png",
+        "128": "icons/ic128.png"
+      },
+      "default_popup": "src/html/popup.html"
+    },
+    "options_ui": {
+      "page": "src/html/options.html",
+      "open_in_tab": true
     }
-}
+  }
+  

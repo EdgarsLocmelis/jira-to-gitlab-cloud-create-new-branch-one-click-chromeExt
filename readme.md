@@ -1,5 +1,5 @@
-# Jira & GitLab integration - Create new branch
-The extension adds a new `Create branch` button to the Jira Issue overview control buttons under the issue title. If you wish to open new branches for your ticket you've just started working on, this extension could help.
+# Jira & GitLab integration
+The extension adds a new Gitlab integration pop-up menu dirrectly from JIRA tab. If you wish to open new or locate existing branches for your ticket, this extension is for you.
 
 ![Screenshot1](screenshots/Capture9.PNG)
 
